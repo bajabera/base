@@ -1,8 +1,19 @@
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
 html, body {
   width: 100%;
   height: 100vh;
   margin: 0;
   color: green;
+  font-size: 1em;
+  font-family: "Lucidia Console", Monaco, monospace;
 }
 
 .wrapper {
@@ -14,7 +25,7 @@ html, body {
   background-color: black;
   height: 100%;
   padding: 1em;
-  border: solid 10px #989898;
+  border: solid 15px #989898;
 }
 #info li {
   display: inline;
@@ -22,13 +33,55 @@ html, body {
 }
 
 #info span {
-  text-decoration: underline;
+  border-bottom: 1px solid green;
 }
 
 #info {
-  border-bottom: 2px dashed green;
+  border-bottom: 2px dashed #004800;
+}
+
+#menu {
+  width: 30%;
+  float: right;
+  border: solid 1px #004800;
+}
+
+
+#menu ul {
+  margin-right: 2em;
 }
 
 #menu li {
   cursor: pointer;
+  margin-bottom: 1em;
+  border: dashed 1px green;
+  list-style-type: none;
+  box-sizing: border-box;
+  padding: .5em;
+}
+
+#base_name_heading {
+  text-align: center;
+  border: solid 1px #004800;
+  width: 20%;
+  margin: 0 auto;
+  margin-top: 1em;
+}
+
+#communication_relay {
+  float: left;
+  width: 69%;
+  border: solid 1px #004800;
+  height: 10em;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+#rocket_coordinates {
+  float: right;
+  margin-top: 1em;
+  border: solid 1px #004800;
+  box-sizing: border-box;
+  width: 30%;
+  padding: 1em;
 }

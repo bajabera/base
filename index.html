@@ -16,15 +16,34 @@
             <li>Rockets in use: <span id='out_rockets'></span></li>
           </ul>
         </div>
+        <h1 id='base_name_heading'></h1>
         <div id='menu'>
           <ul class='button_options'>
             <li id='base_launch'>Launch Rocket</li>
             <li id='base_return'>Return Rocket</li>
+            <li id='base_return_all'>Return All Rockets</li>
             <li id='rocket_purchase'>Purchase Rocket</li>
             <li id='scientist_purchase'>Purchase Scientist</li>
           </ul>
         </div>
-        <div id='rockets_out'>
+        <div id='summary'>
+          <p>Welcome to your base. Here you must control your station, sending
+            rockets out, returning them in, gathering resources and building the
+            space station.</p>
+
+            <p>Items may flash red when there is a problem with them, this can be a
+            lack of resources, development, pretty much anything! Keep your eyes
+            open at all times.</p>
+        </div>
+        <div id='communication_relay'>
+          <h3>Communication Relay</h3>
+          <span id='com_msg'></span>
+        </div>
+        <div id='rocket_coordinates'>
+          <h3>Last Rocket Position</h3>
+          <p id='rocket_x'></p>
+          <p id='rocket_y'></p>
+          <p id='rocket_z'></p>
         </div>
       </div>
     </div>
