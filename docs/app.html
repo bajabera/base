@@ -37,8 +37,9 @@
 
 <span class="hljs-comment">/**
  * Function generates a random float between two integers
- * @param {int} min - The lower bound for generation
- * @param {int} max - The upper bound for generation
+ * @param {number} min - The lower bound for generation
+ * @param {number} max - The upper bound for generation
+ * @returns {number} - A randomly generated number within the given bounds
  */</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generateCoordinate</span>(<span class="hljs-params">min, max</span>) </span>{
   <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.random() * max + min;
@@ -46,8 +47,9 @@
 
 <span class="hljs-comment">/**
  * Function returns a list of randomly generated coordinates
- * @param {int} length - Defines the length of the list the function should
+ * @param {number} length - Defines the length of the list the function should
  * return
+ * @returns {object} List of the given length of randomly generated coordinates
  */</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createProfitList</span>(<span class="hljs-params">length</span>) </span>{
   <span class="hljs-keyword">var</span> list = [];
@@ -57,6 +59,26 @@
     list.push([x, y]);
   }
   <span class="hljs-keyword">return</span> list;
+}
+
+<span class="hljs-comment">/**
+ * Displays content on a modal that is displayed
+ * @param {string} title - Title of the modal
+ * @param {string} text - The text content of the modal
+ * @param {string} button - The text to display on the modal button
+ * @returns {boolean} true/false - Providing function success
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawToModal</span>(<span class="hljs-params">title, text, button</span>) </span>{
+  <span class="hljs-keyword">var</span> modal = <span class="hljs-built_in">document</span>.getElememtById(<span class="hljs-string">'modal'</span>);
+  <span class="hljs-keyword">var</span> heading = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"H2"</span>);
+  <span class="hljs-keyword">var</span> content = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"P"</span>);
+  <span class="hljs-keyword">var</span> btn = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"BUTTON"</span>);
+  heading.appendChild(title);
+  content.appendChild(text);
+  btn.appendChild(button);
+  modal.appendChild(heading)
+    .appendChild(content)
+    .appendChild(btn);
 }</pre></div></div>
             
         </li>

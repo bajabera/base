@@ -29,4 +29,24 @@ function createProfitList(length) {
   return list;
 }
 
+/**
+ * Displays content on a modal that is displayed
+ * @param {string} title - Title of the modal
+ * @param {string} text - The text content of the modal
+ * @param {string} button - The text to display on the modal button
+ * @returns {boolean} true/false - Providing function success
+ */
+function drawToModal(title, text, button) {
+  var modal = document.getElememtById('modal');
+  var heading = document.createElement("H2");
+  var content = document.createElement("P");
+  var btn = document.createElement("BUTTON");
+  heading.appendChild(title);
+  content.appendChild(text);
+  btn.appendChild(button);
+  modal.appendChild(heading)
+    .appendChild(content)
+    .appendChild(btn);
+}
+
 
