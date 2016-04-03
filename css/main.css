@@ -7,81 +7,21 @@
   user-select: none;           /* non-prefixed version, currently
                                   not supported by any browser */
 }
-html, body {
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  color: green;
-  font-size: 1em;
-  font-family: "Lucidia Console", Monaco, monospace;
+body, html * {
+  font-family: 'Abel', sans-serif !important; 
+  background-color: #040E13;
+  color: #00CCE4;
 }
 
-.wrapper {
-  height: 100vh;
-  background-color: grey;
-  padding: 4em;
-}
-.inner {
-  background-color: black;
-  height: 100%;
-  padding: 1em;
-  border: solid 15px #989898;
-}
-#info li {
-  display: inline;
-  margin-right: 2em;
+.glow {
+  text-shadow: 0em 0em 0.4em #2E6C73;
 }
 
-#info span {
-  border-bottom: 1px solid green;
-}
-
-#info {
-  border-bottom: 2px dashed #004800;
-}
-
-#menu {
-  width: 30%;
-  float: right;
-  border: solid 1px #004800;
-}
-
-
-#menu ul {
-  margin-right: 2em;
-}
-
-#menu li {
-  cursor: pointer;
-  margin-bottom: 1em;
-  border: dashed 1px green;
-  list-style-type: none;
-  box-sizing: border-box;
-  padding: .5em;
-}
-
-#base_name_heading {
+.center {
   text-align: center;
-  border: solid 1px #004800;
-  width: 20%;
-  margin: 0 auto;
-  margin-top: 1em;
 }
 
-#communication_relay {
-  float: left;
-  width: 69%;
-  border: solid 1px #004800;
-  height: 10em;
-  box-sizing: border-box;
-  padding: 1em;
+.upper {
+  text-transform: uppercase;
 }
 
-#rocket_coordinates {
-  float: right;
-  margin-top: 1em;
-  border: solid 1px #004800;
-  box-sizing: border-box;
-  width: 30%;
-  padding: 1em;
-}
