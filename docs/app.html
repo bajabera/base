@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>app.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>app.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/**
+ * Author: Ed Prince
+ * Description: Main JS file for beta_base.
+ */</span>
+
+<span class="hljs-comment">/**
+ * Function generates a random float between two integers
+ * @param {int} min - The lower bound for generation
+ * @param {int} max - The upper bound for generation
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generateCoordinate</span>(<span class="hljs-params">min, max</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.random() * max + min;
+}
+
+<span class="hljs-comment">/**
+ * Function returns a list of randomly generated coordinates
+ * @param {int} length - Defines the length of the list the function should
+ * return
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createProfitList</span>(<span class="hljs-params">length</span>) </span>{
+  <span class="hljs-keyword">var</span> list = [];
+  <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; length;i++) {
+    <span class="hljs-keyword">var</span> x = generateCoordinate(MIN, MAX);
+    <span class="hljs-keyword">var</span> y = generateCoordinate(MIN, MAX);
+    list.push([x, y]);
+  }
+  <span class="hljs-keyword">return</span> list;
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
