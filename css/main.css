@@ -7,10 +7,16 @@
   user-select: none;           /* non-prefixed version, currently
                                   not supported by any browser */
 }
+body {
+  background-color: #040E13;
+}
 body, html * {
   font-family: 'Abel', sans-serif !important; 
-  background-color: #040E13;
   color: #00CCE4;
+}
+
+.white {
+  color: white;
 }
 
 .glow {
@@ -23,5 +29,138 @@ body, html * {
 
 .upper {
   text-transform: uppercase;
+}
+
+nav {
+  text-align: center;
+  font-size: 1.3em;
+  border-top: solid 2px #4EAEB9;
+  padding: 1em;
+}
+
+nav span {
+  margin-left: 2em;
+  margin-right: 2em;
+  cursor: pointer;
+}
+
+nav span:hover {
+  color: white;
+}
+
+.modal {
+  display: none;
+  width: 80%;
+  border-top: solid 4px #4EAEB9;
+  margin: 0 auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 2em;
+  font-size: 1em;
+  background-color: black;
+  text-align: center;
+}
+
+.modal input {
+  width: 20%;
+  margin: 1em 0 1em 0;
+  background-color: #010B13;
+  border: solid 1px #223340;
+  padding: .5em;
+}
+
+.modal p {
+  font-size: 1.2em;
+  text-align: left;
+}
+
+.panel {
+  border-top: solid 1px #4EAEB9;
+  border-left: solid 1px #0F2631;
+  padding-left: 2em !important;
+  //height: 40vh;
+}
+
+.panel h3 {
+  border-bottom: dashed 1px #FF8F00;
+  border-left: solid 2px #FF8F00;
+  padding-left: 1em;
+  margin-top: .3em;
+  width: 60%;
+} 
+
+#intro_content {
+  display: none;
+}
+
+button {
+  border: solid 1px #4EAEB9;
+  box-sizing: border-box;
+  padding: 1em 2em 1em 2em;
+  margin: 0 auto;
+}
+
+.data_panel button {
+  min-width: 100%;
+}
+
+.data_panel {
+  padding: 1em;
+}
+
+.data_panel table {
+  margin-top: 1em;
+  min-width: 100%;
+}
+.data_panel td {
+  padding: .1em .5em .1em .5em;
+  border: solid 1px #084756;
+  text-transform: uppercase;
+}
+
+.data_panel .row {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.data_panel .row button:hover {
+  color: white;
+  text-shadow: 0em 0em 0.8em #4EAEB9;
+  background-color: #03131B;
+}
+#message_panel {
+  border-left: solid 1px #4EAEB9;
+  border-top: solid 1px #4EAEB9;
+  padding: .5em;
+}
+
+#message_panel h4 {
+  border-bottom: solid 1px #084756;
+  width: 60%;
+}
+
+.float_right {
+  float: right;
+}
+
+.float_left {
+  float: left;
+}
+
+.planet {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  //background-image: url(http://1.bp.blogspot.com/_9DvzmslTIME/TQrigMoMHdI/AAAAAAAAAkQ/tQ6Do2EuZDk/s1600/planet_Quom1200.png);
+  background-image: url(http://i.imgur.com/xP0JJ5F.png);
+  box-shadow: inset 100px 0 150px #000000;
+  margin: 0 auto;
+}
+
+#planet_panel {
+  background-image: url(http://www.imagico.de/map/pict/grid_1800.png);
 }
 

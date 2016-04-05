@@ -5,10 +5,158 @@
     <link href='https://fonts.googleapis.com/css?family=Abel|Orbitron:500' rel='stylesheet' type='text/css'>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.0.6/css/foundation.min.css' rel='stylesheet' type='text/css'>
     <link href='css/main.css' rel='stylesheet' type='text/css'>
+    <link href='css/map.css' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
   </head>
   <body>
-    <h1 class='glow center upper'>Eiden Space Program</h1>
-    <script src='js/radar.js'></script>
+    <div class='outer-wrapper'>
+      <h1 class='glow center upper'>Eiden Space Program</h1>
+      <nav class='upper'>
+        <span id='nav_main'>Main Screen</span> |
+        <span id='nav_expand'>Expand</span> |
+        <span id='nav_map'>Star Map</span>
+      </nav>
+      <div class='row large-uncollapse'>
+        <div id='panel_top_right' class='small-12 medium-12 large-6 columns panel'>
+          <div class='data_panel'>
+            <h3 class='upper'>Data</h3>
+            <table>
+              <tr>
+                <td>Rockets (base)</td> <td class='white'>2</td>
+              </tr>
+              <tr>
+                <td>Rockets (out)</td>
+                <td class='white'>6</td>
+              </tr>
+              <tr>
+                <td>Scientists</td>
+                <td class='white'>24</td>
+              </tr>
+              <tr>
+                <td>Resources</td>
+                <td class='white'>75000</td>
+              </tr>
+              <tr>
+                <td>Funding (per turn)</td>
+                <td class='white'>2500</td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td>Outgoings (per turn)</td>
+                <td>₹</td>
+                <td>Income (per turn)</td>
+                <td>₹</td>
+              </tr>
+              <tr>
+                <td>Wages</td>
+                <td class='white'id='out_wages'>6,000</td>
+                <td>Funding</td>
+                <td class='white'id='in_funding'>2500</td>
+              </tr>
+              <tr>
+                <td>Base maintenance</td>
+                <td class='white'id='out_maintenance'>300</td>
+                <td>Donations</td>
+                <td class='white'id='in_donations'>200</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>Advertising</td>
+                <td class='white'id='in_advertising'>600</td>
+              </tr>
+            </table>
+            <h4 id='finance_turnover'></h4>
+          </div>
+        </div>
+        <div id='panel_top_left' class='small-12 medium-12 large-6 columns panel'>
+          <div class='data_panel'>
+            <h3 class='upper'>Procedures</h3>
+            <div class='row'>
+              <div class='small-12 medium-12 large-4 columns'>
+                <button>Launch Rocket (₹250)</button>
+              </div>
+              <div class='small-12 medium-12 large-4 columns'>
+                <button>Return Last Rocket (₹100)</button>
+              </div>
+              <div class='small-12 medium-12 large-4 columns'>
+                <button>Return All Rockets (₹100)</button>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='small-12 medium-12 large-4 columns'>
+                <button>Hire Scientists (₹1500)</button>
+              </div>
+              <div class='small-12 medium-12 large-4 columns'>
+                <button>Purchase Larger Hull (₹10000)</button>
+              </div>
+              <div class='small-12 medium-12 large-4 columns'>
+                <button>Research Department (₹15000)</button>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='small-12 medium-12 large-4 columns'>
+                <button>Decryption Department (₹12500)</button>
+              </div>
+              <div class='small-12 medium-12 large-4 columns'>
+                <button>Financial Department (₹20000)</button>
+              </div>
+              <div class='small-12 medium-12 large-4 columns'>
+                <button>Science Department (₹250)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div id='panel_bottom_right' class='small-12 medium-12 large-6 columns panel'>
+          <div class='data_panel'>
+            <h3 class='upper'>Messages</h3>
+            <div id='message_panel'>
+              <h4 id='message_sender'></h4>
+              <span id='message_content'></span>
+            </div>
+          </div>
+        </div>
+        <div id='panel_bottom_left' class='small-12 medium-12 large-6 columns panel'>
+          <div class='data_panel'>
+            <h3 class='upper'>Planet: Eiden</h3>
+            <div id='planet_panel'>
+              <div class='planet'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div id='modal' class='modal'>
+    </div>
+    <span id='intro_content'>
+      Welcome to mission control. You are now in control of your own space
+      research centre. Take a minute to familiarize yourself with your new work
+      station.<br />
+
+      Your station monitoring device is split into 3 sections, your home screen,
+      an expansion screen, and a map/radar device. Your home screen will display
+      all current, relevant data to you, for example the number or ships you
+      currently control. It also displays all potential procedures for you to
+      choose from. It displays all messages being broadcast to you or your
+      station, and gives alerts you to your current financial status, with
+      incomes and outgoings.<br />
+
+      The expansion screen is where you can expand your centre or its assets.
+      There are more departments you can add, and ship upgrades as well. <br />
+
+      Lastly the map will give you a geographical indication as to
+      where your ships are when on missions. Some locations in the system are
+      far more profitable than others, but you'll need to find that out for
+      yourself.<br />
+    </span>
+    <div id='map_container'>
+    </div>
+    <script src='js/map.js'></script>
     <script src='js/app.js'></script>
   </body>
 </html>
