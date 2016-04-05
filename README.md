@@ -7,3 +7,5 @@ characters/movement as such, it is a strategy game, putting you at the helm of
 mission control at your own space centre. Feel free to suggest ideas/contribute
 to the project. Enjoy!
 
+![Screenshot](http://i.imgur.com/tCEOlgR.png)
+
