@@ -3,6 +3,131 @@
  * Description: Main JS file for beta_base.
  */
 
+function Base(name) {
+  var base = {
+    name: name,
+    resources: 2000,
+    scientists: 4,
+    rockets_in: 2,
+    rockets_out: 0,
+    payload: 500,
+    launchCost: 5,
+    returnCost: 5,
+    funding: 50,
+    donations: 20,
+    advertising: 100,
+    hireCost: 100,
+    wages: 30,
+    maintenance: 5,
+    researchDepartment: false,
+    researchDepartmentCost: 15000,
+    researchDepartmentScientists: 2,
+    decryptionDepartment: false,
+    decryptionDepartmentCost: 20000,
+    decryptionDepartmentScientists: 4,
+    financeDepartment: false,
+    financeDepartmentCost: 25000,
+    financeDepartmentScientists: 4,
+    largeHulls: false,
+    largeHullsCost: 10000,
+    launch: function() {
+      if (base.resources >= base.launchCost) {
+        base.resources -= base.launchCost;
+        base.rockets_in -= 1;
+        base.rockets_out += 1;
+      } else {
+        writeMessage('Mission Control', 'funds');
+      }
+    },
+    returnRocket: function() {
+      if (base.resources >= base.returnCost) {
+        base.resources -= base.returnCost;
+        base.rockets_out -= 1;
+        base.rockets_in -= 1;
+      } else {
+        writeMessage('Mission Control', 'funds');
+      }
+    },
+    returnAll: function() {
+      if (base.resources >= (base.rockets_out * base.returnCost)) {
+        base.resources -= (base.rockets_out * base.returnCost);
+        base.rockets_in += base.rockets_out;
+        base.rockets_out = 0;
+      } else {
+        writeMessage('Mission Control', 'funds');
+      }
+    },
+    hire: function() {
+      if (base.resources >= base.hireCost) {
+        base.resources -= base.hireCost;
+        base.scientists += 1;
+      } else {
+        writeMessage('Mission Control', 'funds');
+      }
+    },
+    buyResearch: function() {
+      if ((base.resources >= base.researchDepartmentCost) && (base.scientists >= base.researchDepartmentScientists)) {
+        base.resources -= base.researchDepartmentCost;
+        base.researchDepartment = true;
+        base.scientists -= base.researchDepartmentScientists;
+        base.funding *= 2;
+      } else {
+        writeMessage('Mission Control', 'funds');
+      }
+    },
+    buyDecryptionDepartment: function() {
+      if ((base.resources >= base.decryptionDepartmentCost) && (base.scientists >= base.decryptionDepartmentScientists)) {
+        base.resources -= base.decryptionDepartmentCost;
+        base.decyptionDepartment = true;
+        base.scientists -= base.decryptionDepartmentScientists;
+      } else {
+        writeMessage('Mission Control', 'funds');
+      }
+    },
+    buyFinanceDepartment: function() {
+      if ((base.resources >= base.financeDepartmentCost) && (base.scientists >= base.financeDepartmentScientists)) {
+        base.resources -= base.financeDepartmentCost;
+        base.financeDepartment = true;
+        base.scientists -= base.financeDepartmentScientists;
+      } else {
+        writeMessage('Mission Control', 'funds');
+      }
+    },
+    buyHull: function() {
+      if (base.resources >= base.largeHullsCost) {
+        base.resources -= base.largeHullsCost;
+        base.largeHulls = true;
+        base.payload *= 2;
+      } else {
+        writeMessage('Mission Control', 'funds');
+      }
+    }
+  }
+  return base;
+}
+
+//Program Flow
+var title = 'Getting Started';
+var content = document.getElementById('intro_content').innerHTML;
+drawToModal(title, content, 'Proceed', 'Name your station', 'station_name');
+listen('modal_btn1', 'click', closeModal);
+listen('nav_map', 'click', displayMap);
+
+var myBase = Base('Eiden');
+
+function closeModal() {
+  var modal = document.getElementById('modal');
+  modal.style.display = 'none';
+}
+
+function displayMap() {
+  //updateMap();
+}
+
+
+
+
+
 /**
  * Function generates a random float between two integers
  * @param {number} min - The lower bound for generation
@@ -46,7 +171,7 @@ function createProfitList(length) {
  * @param {string} button2 - The text to display on the (optional) second button
  * @returns {boolean} true/false - Providing function success
  */
-function drawToModal(title, text, button, input1, input2, button2) {
+function drawToModal(title, text, button, input1, input1_id, input2, button2) {
   var modal = document.getElementById('modal');
   var heading = document.createElement("H2");
   var content = document.createElement("P");
@@ -56,6 +181,7 @@ function drawToModal(title, text, button, input1, input2, button2) {
   content.innerHTML = text;
   btn.innerHTML = button;
   btn.setAttribute('class', 'glow upper');
+  btn.setAttribute('id', 'modal_btn1');
   heading.setAttribute('class', 'glow');
   modal.appendChild(heading)
     .appendChild(br);
@@ -63,6 +189,7 @@ function drawToModal(title, text, button, input1, input2, button2) {
   if (input1 !== undefined) {
     var inpt1 = document.createElement("INPUT");
     inpt1.setAttribute('placeholder', input1);
+    inpt1.setAttribute('id', input1_id);
     modal.appendChild(inpt1);
     modal.appendChild(br);
   }
@@ -77,6 +204,7 @@ function drawToModal(title, text, button, input1, input2, button2) {
     var btn2 = document.createElement("BUTTON");
     btn2.appendChild(button2);
   }
+  modal.style.display = 'block';
 }
 
 
@@ -87,6 +215,9 @@ function drawToModal(title, text, button, input1, input2, button2) {
  * {returns} true/false on success/failure of message sending
  */
 function writeMessage(sender, content) {
+  if (content == 'funds') {
+    content = 'We do not have sufficient funds to authorize this request.';
+  }
   var msg_sender = document.getElementById('message_sender');
   var msg_content = document.getElementById('message_content');
   msg_sender.innerHTML = 'From: ' + sender;
@@ -121,9 +252,17 @@ function displayFinance(wages, maintenance, funding, donations, advertising) {
   turnover.innerHTML = profit;
 }
 
+function displayData(base) {
+  display('rockets_in', base.rockets_in);
+  display('rockets_out', base.rockets_out);
+  display('scientists', base.scientists);
+  display('resources', base.resources);
+}
 
-displayFinance(2000, 150, 200, 45, 1000);
-writeMessage('Ed Prince', 'Greeting space-goer, welcome to the system. Here you will find messages in future turns, giving potentially crucial knowledge on many aspects of space exploration. Keep an eye on it!');
-var title = 'Getting Started';
-var content = document.getElementById('intro_content').innerHTML;
-drawToModal(title, content, 'Proceed', 'Name your station');
+function display(id, content) {
+  document.getElementById(id).innerHTML = content;
+}
+
+displayData(myBase);
+displayFinance(myBase.wages, myBase.maintenance, myBase.funding, myBase.donations, myBase.advertising);
+writeMessage('Ed Prince', 'Greeting Commander, welcome to the system. Here you will find messages in future turns, giving potentially crucial knowledge on many aspects of space exploration. Keep an eye on it!');

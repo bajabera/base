@@ -1,9 +1,12 @@
 #map_container {
   height: 90vh;
   width: 100%;
+ 
 }
 
 #map_container canvas {
-  //border: solid 1px white;
+  border: solid 6px #021B27;
   margin: 0 auto;
+  display: block;
+  margin-top: 2em;
 }

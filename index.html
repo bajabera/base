@@ -23,23 +23,20 @@
             <h3 class='upper'>Data</h3>
             <table>
               <tr>
-                <td>Rockets (base)</td> <td class='white'>2</td>
+                <td>Rockets (base)</td> 
+                <td id='rockets_in' class='white'>2</td>
               </tr>
               <tr>
-                <td>Rockets (out)</td>
-                <td class='white'>6</td>
+                <td >Rockets (out)</td>
+                <td id='rockets_out' class='white'>6</td>
               </tr>
               <tr>
                 <td>Scientists</td>
-                <td class='white'>24</td>
+                <td id='scientists' class='white'>24</td>
               </tr>
               <tr>
                 <td>Resources</td>
-                <td class='white'>75000</td>
-              </tr>
-              <tr>
-                <td>Funding (per turn)</td>
-                <td class='white'>2500</td>
+                <td id='resources' class='white'>75000</td>
               </tr>
             </table>
             <table>
@@ -51,7 +48,7 @@
               </tr>
               <tr>
                 <td>Wages</td>
-                <td class='white'id='out_wages'>6,000</td>
+                <td class='white'id='out_wages'></td>
                 <td>Funding</td>
                 <td class='white'id='in_funding'>2500</td>
               </tr>
@@ -154,8 +151,14 @@
       far more profitable than others, but you'll need to find that out for
       yourself.<br />
     </span>
-    <div id='map_container'>
+    <div class='row' id='map_container'>
+      <h2>Star Map</h2>
+      <p>Here you can see all of the ships that are currently in space on
+        missions.</p>
     </div>
+    <script>
+      var locations = [];
+    </script>
     <script src='js/map.js'></script>
     <script src='js/app.js'></script>
   </body>
