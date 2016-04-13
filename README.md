@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/edprince/base.png?label=ready&title=Ready)](https://waffle.io/edprince/base)
 # Base
 
 Base is a series of iterative games, focused solely as a personal
